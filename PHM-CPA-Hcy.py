@@ -67,7 +67,7 @@ st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow
 def user_input_features():
     st.sidebar.header('Make a prediction')
     st.sidebar.write('User input parameters below ⬇️')
-    a0 = st.sidebar.slider('Hcy (umol/L)', 0.0, 100.0, 0.0)
+    a0 = st.sidebar.slider('Hcy (μmol/L)', 0.0, 100.0, 0.0)
     a1 = st.sidebar.slider('BUN (mmol/L)', 1.0, 100.0, 0.0)
     a2 = st.sidebar.slider('Total cholesterol (mmol/L)', 0.5, 10.0, 0.0)
     a3 = st.sidebar.slider('Total bilirubin (μmol/L)', 0.0, 300.0, 0.0)
@@ -96,7 +96,7 @@ with open('model20230620_apply.pkl', 'rb') as f:
     catmodel = pickle.load(f)
 
 #st.header('👉 Make predictions in real time')
-colnames = ['Hcy (umol/L)',
+colnames = ['Hcy (μmol/L)',
     'BUN (mmol/L)','Total cholesteral (mmol/L)','Total bilirubin (μmol/L)','Total protein (g/L)',
                      'Cholinesterase (U/L)','HDL (mmol/L)','Bile acid (μmol/L)','INR','TT (second)','RBC (10E12/L)',
                      'MCHC (g/L)','RDW (%)','HCO3 (mmol/L)','HE','HCT (%)']
