@@ -111,6 +111,7 @@ outputdf = pd.DataFrame([outputdf], columns= colnames)
 dtest = xgb.DMatrix(outputdf.iloc[:,1:])
 p2 = catmodel.predict(dtest)
 p2 = p2+(outputdf.iat[0,0]-0.1)/(85.8-0.1)
+p2 = (p2-0.004)/(1.6-0.004)
 p1 = 0
 if p2 < 0.15:
     p1 = 'Low risk of death'
