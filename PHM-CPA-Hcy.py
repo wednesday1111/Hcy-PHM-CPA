@@ -92,7 +92,7 @@ outputdf = user_input_features()
 
 
 
-with open('D:/jupyter-notebook/Apply/fraud-detection-main/model20230620_apply.pkl', 'rb') as f:
+with open('model20230620_apply.pkl', 'rb') as f:
     catmodel = pickle.load(f)
 
 #st.header('👉 Make predictions in real time')
@@ -133,20 +133,9 @@ with placeholder6.container():
 
 placeholder7 = st.empty()
 with placeholder7.container():
-    f1,f2 = st.columns(2)
-    with f1:
         st.subheader('Part2: Output results ⬇️')
         st.write(f'1. Predicted class: {p1}')
         st.write(f'2. Predicted class probability: {p2}')
-    with f2:
-        st.subheader('Part3: Model interpretation ⬇️')
-        explainer = shap.Explainer(catmodel)
-        shap_values = explainer(outputdf.iloc[:,1:])
-
-        #st_shap(shap.plots.waterfall(shap_values[0]),  height=500, width=1700)
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        shap_values_transformed = xgb_shap_transform_scale(shap_values, p2, 0)
-        shap.plots.waterfall(shap_values_transformed[0],max_display=15)
-        st.pyplot(bbox_inches='tight')        
+   
 
 
